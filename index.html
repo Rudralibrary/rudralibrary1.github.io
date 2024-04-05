@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en,ben">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rudra Library </title>
+    <style>
+        /* CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        }
+          .blue-section {
+    background-color: lightblue;
+    padding: 20px;
+  }
+.notification {
+
+  border: 2px solid #007bff; /* Blue border */
+  padding: 10px;
+  width: 250px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.notification-text {
+  animation: moveText 20s linear infinite; /* Moving animation */
+}
+
+@keyframes moveText {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.menu-toggle {
+background-color:purple;
+border:solid;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.dot-menu, .cross-menu {
+  width: 17px;
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.cross-menu {
+border:dashed;
+background-color:red;
+  transform: rotate(45deg);
+}
+
+.menu-options {
+  display: none;
+}
+.menu-options.active {
+  display: block;
+}
+.no-select {
+        cursor: default;
+    }.no-select-msg {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(255, 0, 0, 0.5);
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+    }
+        header {
+            background-color: lightblue;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+        }
+.search-container {
+        margin-bottom: 20px;
+    }
+
+    .search-container input[type=text] {
+        padding: 10px;
+        width: 300px; /* Adjust width as needed */
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }    .search-container button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .search-container button:hover {
+        background-color: #0056b3;
+    }    .search-results {
+        text-align: left;
+    }
+
+    .search-results li {
+align:center;
+        margin-bottom: 10px;
+    }
+
+    .search-results a {
+        color: #007bff;
+        text-decoration: none;
+    }    .search-results a:hover {
+        text-decoration: underline;
+    }
+        nav {
+            background-color: lightblue;
+            color: pink;
+            padding: 20px;
+            text-align: center;
+        }
+        .container2 {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+background color = yellow;
+        }
+        section {
+            margin-top: 20px;
+            background color = lightblue;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 60px;
+        }
+.social-icons {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .social-icons li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+social-icons li:last-child {
+        margin-right: 0;
+    }
+
+    .social-icons img {
+        width: 24px; /* Adjust size as needed */
+        height: 24px;
+        vertical-align: middle;
+    }
+.container1 {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: yellow;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }h2 {
+        text-align: center;
+    }
+    .emotions {
+        display: flex;
+        justify-content: center;
+        margin-top: 21px;
+    }    .emotion {
+        font-size: 21px;
+        cursor: pointer;
+        margin: 0 10px;
+        transition: transform 0.2s ease;
+    }
+    .emotion:hover {
+        transform: scale(1.1);
+    }    .submit-btn {
+        display: block;
+        margin: 30px auto;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        transition: background-color 0.3s ease;
+    }    .submit-btn:hover {
+        background-color: #45a049;
+    }
+
+.comment-form {
+            margin-top: 20px;
+border:solid;
+border-color:red;
+background-color:yellow;
+        }
+        .comment-form input[type="text"],
+        .comment-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }.comment-form input[type="submit"] {
+            background-color: lightblue;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .comment-form input[type="submit"]:hover {
+            background-color: #555;
+        }
+.registration-form {
+            margin-top: 20px;
+background-color:yellow;
+border:solid;
+border-color:red;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }.form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }.form-group select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }.form-group input[type="submit"] {
+            background-color: lightblue;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }.form-group input[type="submit"]:hover {
+            background-color: red;
+        }
+.article {
+            margin-top: 20px;
+align:center;
+            padding: 20px;
+            background-color: lightblue;
+            border-radius: 9px;
+        }
+        .book-cover {
+align:center;
+            max-width: 200px;
+            margin-bottom: 10px;
+        }
+.external-link {
+align:center;
+            background-color: red;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+        }.external-link:hover {
+            background-color: darkred;
+        }
+.gallery {
+align:center;
+background-color: red;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+border:solid;
+background-color:yellow;
+border-color:red;
+        }
+        .gallery img {
+            width: 200px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+.logo {
+            max-height: 65px; /* Adjust max-height as needed */
+            margin-bottom: 25px; /* Adjust margin as needed */
+        }
+        
+.menu-icon {
+        position: relative;
+        cursor: pointer;
+        margin-right: 20px;
+    }.menu-icon::before,
+    .menu-icon::after,
+    .menu-icon div {
+        content: '';
+        background-color: #fff;
+        height: 4px;
+        width: 20px;
+        margin: 4px 0;
+        border-radius: 2px;
+        position: absolute;
+    }    .menu-icon::before {
+        top: 0;
+    }
+    .menu-icon::after {
+        bottom: 0;
+    }
+    .menu-icon div {
+        top: 50%;
+        transform: translateY(-50%);
+    }.menu {
+        display: none;
+        position: absolute;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        top: 30px;
+        left: -5px;
+    }.menu a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 5px 0;
+    }
+    .menu a:hover {
+        background-color: #555;
+    }
+    .menu-icon:hover + .menu {
+        display: block;
+    }
+.icon-box {
+        background-color: #fff9c4; /* Light yellow background */
+        border: 2px solid #ff0000; /* Red border */
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        width: 300px; /* Adjust width as needed */
+        margin: 0 auto; /* Center the box */
+    }
+    .icon {
+        width: 105px; /* Adjust icon size as needed */
+        height: 105px; /* Adjust icon size as needed */
+        border-radius: 50%; /* Circular shape */
+        margin: 0 auto 20px; /* Center the icon and add space below */
+    }
+    .icon-text {
+        font-size: 15px;
+        color: #333; /* Text color */
+    }
+.caution-box {
+align:center;
+        background-color: #ffebeb; /* Light red background */
+        border: 1px solid #ff0000; /* Red border */
+        padding: 15px;
+        margin: 20px 0;
+        border-radius: 5px;
+        color: #ff0000; /* Red text color */
+        font-weight: bold;
+width:300px;
+    }
+    
+.warning-message {
+        display: none;
+        background-color: #ffcccc;
+        border: 1px solid #ff0000;
+        color: #ff0000;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+.body {
+        -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.04.41 PM.jpeg"alt="Logo" class="logo">
+<div class="menu-toggle" onclick="toggleMenu()">
+  <div class="dot-menu"></div>
+</div>
+<div class="menu-options" id="menuOptions">
+<ul>
+<li>
+<a href="#RUDRA LIBRARY Importance">RUDRA LIBRARY Importance</a></li>
+<li><a href="#Publishing requirement">Publishing requirement</a></li>
+<li><a href="#contact">Contact</a></li>
+<li><a href="#Publish in Rudra Library">Publish in Rudra Library</a></li>
+ <li> <a href="#">Option 1</a></li>
+  <li><a href="#">Option 2</a></li>
+  <li><a href="#">Option 3</a></li>
+</ul>
+</div>
+        <h1>Rudra Library</h1>
+
+<form class="search-container">
+        <input type="text" id="searchInput" placeholder="Search books...">
+        <button type="button" onclick="searchBooks()">Search</button>
+    </form>
+<div class="search-results" id="searchResults"></div>
+
+
+</header>
+    <hr color=red>
+    <div class ="blue-section">
+  <h1 background-color="pink">WELCOME</h1>
+  <p> to Rudra Library an e-learning educational platform. Here you can read all type of book and buy pdf . If you are poet or writer then you can publish your boo<p>k , poem and stories in this Rudra publisher platform                  lf you are artist then you can publish your art on this site.             And if you are a social person or a educational blogger then you can publish your articles on this website and you will need not any money that means it is fully free publishing platform.</p>
+</div>
+<div class="blue-section">
+  <h3>Our library contains : - </h3>
+  <p> Class 3 to 12 all subject notes , pdf , ebook , novel archives ,aome valueable speech of great persons, art , dance , song , cultural article , educational blog , educational article , educational notes etc unit  </p>
+</div>
+<div class="notification">
+  <p class="notification-text">This is a notification message!</p>
+</div>
+    <nav>
+        <ul>
+            <li><a href="#RUDRA LIBRARY Importance">RUDRA LIBRARY Importance</a></li>
+            <li><a href="#Publishing requirement">Publishing requirement</a></li>
+            <li><a href="#Publish in Rudra Library">Publish in Rudra Library</a></li>
+            
+        </ul>
+    </nav>
+<div class="container1">
+        <h2>Send an Emotion</h2>
+        <form action="mailto:rudralibrary1@gmail.com" method="post" enctype="text/plain">
+            <div class="emotions">
+                <label class="emotion">
+                    <input type="radio" name="emotion" value="🙏">
+                  
+  🙏
+<h6>welcome</h6>
+                </label>
+                <label class="emotion">
+                    <input type="radio" name="emotion" value="👍">
+                    
+👍
+<h6>like</h6>
+                </label><label class="emotion">
+                    <input type="radio" name="emotion" value="👎">
+                   
+ 👎
+<h6>dislike</h6>
+                </label>
+                <label class="emotion">
+                    <input type="radio" name="emotion" value="♥️">
+                    
+♥️
+<h6>love</h6>
+                </label>
+<label class="emotion">
+                    <input type="radio" name="emotion" value="😄">
+                   
+ 😄
+<h6>ha Ha</h6>
+                </label>
+            </div>
+            <button type="submit" class="submit-btn">Send Emotion</button>
+        </form>
+    </div>
+    <div class="blue-section">
+<section id="RUDRA LIBRARY Importance">
+
+  <h3>Steps to publish documents including (art ,poetry , story, ebook , cultural article , song ,drama , educational notes etc.</h3>
+  <p>(1) full up the registration form with your name , father's name , email ID , phone number and your publishing document name       </p> 
+  <p>   (2) Within 2 days you will be got response from our team.                 </p>
+ <p> (3) Then you will be given a message to give us your document name , photo , doc file , doc link , and a brief description .  </p>
+   <p>  (3) Within 2 days your document will be published . (It is guaranteed by Rudra Library CEO).        </p> 
+   <p>     (4) Then you will be got a link of your published document.</p>
+</div>
+    <div class="container">
+        <section id="Publishing requirement">
+
+<h4>The importance of an eLibrary, such as "Rudra Library," as an e-learning platform lies in its numerous advantages for learners:</h4>
+
+<p>1. *Accessibility*: Rudra Library provides access to a vast array of learning materials, including eBooks, articles, videos, and more, which learners can access anytime, anywhere with an internet connection. This accessibility eliminates geographical barriers and allows learners to study at their own pace.</p>
+
+<p>2. *Variety of Resources*: The eLibrary offers a diverse range of resources covering various subjects and topics, catering to the different learning preferences and needs of users. Whether it's academic textbooks, research papers, or multimedia content, learners can find resources suitable for their learning objectives.</p>
+
+<p>3. *Convenience*: Learners can access Rudra Library from their computers, tablets, or smartphones, making it convenient for them to study on-the-go or during their free time. This flexibility enables busy individuals to incorporate learning into their daily routines without disruptions.</p>
+
+<p>4. *Cost-Effectiveness*: Unlike traditional libraries, which may require physical infrastructure and maintenance costs, Rudra Library operates online, reducing overhead expenses. This cost-effectiveness translates to lower subscription fees or free access for users, making quality education more affordable and accessible to a wider audience.</P>
+
+<p>5. *Interactive Learning*: Many eLibraries, including Rudra Library, offer interactive features such as quizzes, forums, and discussion boards, fostering collaborative learning and engagement among users. These interactive elements enhance the learning experience and encourage active participation.</p>
+
+<p>6. *Up-to-Date Content*: Digital resources in Rudra Library can be easily updated and revised, ensuring that learners have access to the latest information and advancements in their respective fields. This real-time updating feature keeps the content relevant and aligned with current trends and developments.</p>
+
+<p>7. *Environmental Sustainability*: By reducing the need for printed materials, eLibraries like Rudra Library contribute to environmental sustainability by minimizing paper consumption and carbon emissions associated with transportation and waste disposal.</p>
+
+<p>In summary, Rudra Library serves as a valuable e-learning platform by providing accessible, diverse, and cost-effective learning resources, fostering convenience, interactivity, and up-to-date learning experiences while promoting environmental sustainability</P>
+            
+        </section>
+        
+        <section id="welcome" background-color="lightblue">
+            <h1 align= "center" background-color="pink">Welcome</h1>
+        </section>
+        <section id="Publish in Rudra Library">
+
+<H4>Publishing in Rudra Library offers several advantages, especially with its robust security measures and adherence to Indian government copyright acts:</h4>
+
+<p>1. *Secure Platform*: Rudra Library provides a highly secure platform for publishers to showcase their content. With advanced encryption protocols and secure server infrastructure, publishers can trust that their intellectual property is protected from unauthorized access or infringement.</P>
+
+<p>2. *Copyright Protection*: As a publisher affiliated with Rudra Library, you benefit from the strong copyright protection enforced by Indian government regulations. This ensures that your published works are legally safeguarded against unauthorized reproduction, distribution, or usage.</p>
+
+<p>3. *Access Control*: Rudra Library implements access control mechanisms to regulate who can view, download, or distribute published content. Publishers have the flexibility to set permissions and restrictions, thereby maintaining control over their intellectual property rights.</p>
+
+<p>4. *Digital Rights Management (DRM)*: Rudra Library employs DRM technologies to prevent unauthorized copying or sharing of digital content. Publishers can apply DRM policies to their publications, safeguarding them against piracy and unauthorized redistribution.,/p>
+
+<p>5. *Authentication and Authorization*: Rudra Library employs authentication and authorization mechanisms to verify the identity of users accessing published content. This ensures that only authorized individuals, such as subscribers or licensed users, can access the content as per the terms and conditions set by the publisher.</p>
+
+<p>6. *Legal Compliance*: By publishing in Rudra Library, publishers adhere to Indian government copyright acts and regulations, ensuring legal compliance and adherence to intellectual property laws. This mitigates the risk of copyright infringement lawsuits and reinforces the credibility of published works.</p>
+
+<p>7. *Reputation and Trust*: Rudra Library's commitment to security and copyright protection enhances its reputation as a trustworthy platform for publishers and users alike. Publishers can confidently showcase their content on Rudra Library, knowing that it is backed by stringent security measures and legal compliance.</p>
+
+<p>In conclusion, publishing in Rudra Library provides publishers with a secure and legally compliant platform to showcase their content, offering robust security measures and adherence to Indian government copyright acts for the protection of intellectual property rights.</p>
+         
+        </section>
+<section id="bengali-poem" class="article">
+            <h2>Achena</h2>
+            <img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 8.43.36 PM (2).jpeg" alt="Book Cover" class="book-cover">
+            <p>Description: it is travelling story.when author go to the shilchar then he wrote this story.</p>
+            <p>Poet: <mark>Yogi Purnangsu Nath Mazumder</mark></p>
+            <a href="#https://drive.google.com/file/d/1jIDd9TUq4THQgzPN8k5g_SM04K7SkcbG/view?usp=drive_link" class="external-link">READ POEM</a>
+        </section>
+        
+        <section id="bengali-poem" class="article">
+            <h2>Bengali Poem</h2>
+            <img src="book_cover.jpg" alt="Book Cover" class="book-cover">
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper.</p>
+            <p>Poet: Rabindranath Tagore</p>
+            <a href="#" class="external-link">READ POEM</a>
+        </section>
+        
+        <section id="bengali-poem" class="article">
+            <h2>Bengali Poem</h2>
+            <img src="book_cover.jpg" alt="Book Cover" class="book-cover">
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper.</p>
+            <p>Poet:     Yogi Purnangsu Nath Mazumder </p>
+            <a href="#" class="external-link">READ POEM</a>
+        </section>
+        
+        <section id="bengali-poem" class="article">
+            <h2>Bengali Poem</h2>
+            <img src="book_cover.jpg" alt="Book Cover" class="book-cover">
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper.</p>
+            <p>Poet: Rabindranath Tagore</p>
+            <a href="#" class="external-link">READ POEM</a>
+        </section>
+        <section id="bengali-poem" class="article">
+            <h2>Bengali Poem</h2>
+            <img src="book_cover.jpg" alt="Book Cover" class="book-cover">
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula porta felis euismod semper.</p>
+            <p>Poet: Rabindranath Tagore</p>
+            <a href="#" class="external-link">READ POEM</a>
+        </section>
+<section id="registration" class="registration-form">
+            <h2>Publisher Registration Form</h2>
+            <form action="mailto:rudralibrary1@gmail.com" method="post" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required placeholder=your name....>
+                </div>
+<div class="form-group">
+                    <label for="Your document name">Father's Name:</label>
+                    <input type="text" id="father-name" name="father-name" required placeholder=your document name ...>
+                </div>
+                <div class="form-group">
+                    <label for="phone-number">Phone Number:</label>
+                    <input type="tel" id="phone-number" name="phone-number" required placeholder= your phone no..>
+                </div><div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" required placeholder= your age>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" rows="4" required></textarea>
+                </div><div class="form-group">
+                    <label for="qualification">Qualification:</label>
+                    <input type="text" id="qualification" name="qualification" required>
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+       
+        
+
+<!-- Gallery -->
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <div class="gallery">
+
+                <img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.51.17 PM.jpeg"" alt="Image 1">
+
+                <img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.11.20 PM (1).jpeg" alt="Image 2">
+
+                <img src= "C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.11.20 PM (1).jpeg"alt="Image 3">
+
+<img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.11.20 PM (2).jpeg"alt="Image 4">
+
+<img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.11.20 PM (2).jpeg"alt="Image 5">
+
+          <img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.11.19 PM.jpeg"alt="Image 6">
+
+          <img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.11.18 PM.jpeg"alt="Image 7">
+
+          <img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.11.18 PM (1).jpeg"alt="Image 8">
+
+          <img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.11.17 PM.jpeg"alt="Image 9">
+
+<img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.11.16 PM.jpeg"alt="Image 10">
+
+<img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.04.41 PM.jpeg"alt="Image 11">
+
+<img src=alt="Image 3">
+          
+                <!-- Add more images as needed -->
+            </div>
+        </section>
+
+        
+        <section id="contact">
+            <h2>Contact</h2>
+            <!-- Include contact form, contact information, and support options -->
+<h4> Call :—</h4>
+<h5> 9395645035    </h5>
+<h4>e-mail ID:—.       </h4>
+<h5>rudralibrary1@gmail.com </h5>
+</section>
+<div class="caution-box">
+        <p>Caution: Reproduction of the text, books, or images from this website is strictly prohibited and may result in legal action for copyright infringement. Please refrain from copying any content without proper authorization.</p>
+        <p>Ordered by CEO of this website.</p>
+    </div><div class="icon-box">
+        <img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 8.00.30 PM (1).jpeg"alt="Icon" class="icon">
+        <p class="icon-text">Yogi Purnangsu Nath Mazumder is the esteemed CEO and founder of Rudra Library. With a visionary approach, Mazumder has pioneered the development of Rudra Library, establishing it as a cornerstone in the realm of literature and knowledge dissemination. His dedication to fostering a culture of learning and enlightenment is evident through Rudra Library's diverse collection and commitment to intellectual growth. Mazumder's leadership continues to inspire both within the organization and beyond, making Rudra Library a beacon of wisdom and scholarship.</p>
+    </div>
+<section id="comment">
+            <h2>Leave a Comment</h2>
+            <form class="comment-form" action="mailto:rudralibrary1@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="question" placeholder="Your Question" rows="4" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+
+    </div>
+<script>
+        // JavaScript to toggle menu links visibility
+        document.querySelector('.menu').addEventListener('click', function() {
+            document.querySelector('.menu-links').classList.toggle('show');
+        });
+    </script>
+<script>
+        // Close the menu when clicking outside of it
+        window.addEventListener('click', function(event) {
+            var menu = document.querySelector('.menu');
+            var menuIcon = document.querySelector('.menu-icon');
+            if (!menu.contains(event.target) && !menuIcon.contains(event.target)) {
+                menu.style.display = 'none';
+            }
+        });
+    </script>
+<script>
+function toggleMenu() {
+  const dotMenu = document.querySelector('.dot-menu');
+  const menuOptions = document.getElementById('menuOptions');
+  
+  dotMenu.classList.toggle('cross-menu');
+  menuOptions.classList.toggle('active');
+}
+        // Sample dataset of books (replace with your actual data)
+        var books = [
+            { title: "Book 1", author: "Author 1", category: "Fiction", link: "https://example.com/book1" },
+            { title: "Book 2", author: "Author 2", category: "Non-fiction", link: "https://example.com/book2" },
+            { title: "Book 3", author: "Author 3", category: "Fiction", link: "https://example.com/book3" },
+            { title: "Book 4", author: "Author 4", category: "Non-fiction", link: "https://example.com/book4" }
+        ];function searchBooks() {
+            var keyword = document.getElementById("searchInput").value.toLowerCase();
+            var searchResults = document.getElementById("searchResults");
+            searchResults.innerHTML = ""; // Clear previous results
+
+            // Filter books dataset based on keyword
+            var filteredBooks = books.filter(function(book) {
+                return book.title.toLowerCase().includes(keyword) || book.author.toLowerCase().includes(keyword);
+            });if (filteredBooks.length > 0) {
+                var resultList = document.createElement("ul");
+                filteredBooks.forEach(function(book) {
+                    var listItem = document.createElement("li");
+                    var link = document.createElement("a");
+                    link.textContent = book.title + " by " + book.author;
+                    link.href = book.link;
+                    listItem.appendChild(link);
+                    resultList.appendChild(listItem);
+                });                searchResults.appendChild(resultList);
+            } else {
+                var noResultsMsg = document.createElement("p");
+                noResultsMsg.textContent = "No results found.";
+                searchResults.appendChild(noResultsMsg);
+            }
+        }
+
+        // Show message when attempting to select text
+        document.addEventListener('mousedown', function(event) {
+            var msg = document.getElementById('no-select-msg');
+            if (window.getSelection().toString().length > 0) {
+                msg.style.display = 'block';
+                setTimeout(function() {
+                    msg.style.display = 'none';
+                }, 1000);
+            }
+        });document.addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+        });
+
+        // Display alert message when attempting to copy text
+        document.addEventListener('copy', function(event) {
+            event.preventDefault();
+            alert('Copying text from this website is not allowed.');
+        });
+    </script>
+        
+
+    <a href="//www.dmca.com/Protection/Status.aspx?id=07c78959-79a5-4a62-b1cf-94c758e22019" title="DMCA.com Protection Status" class="dmca-badge"> <img src="//images.dmca.com/Badges/dmca-badge-w150-5x1-01.png?ID=//www.dmca.com/Protection/Status.aspx?id=07c78959-79a5-4a62-b1cf-94c758e22019" alt="DMCA.com Protection Status"></a> <script src="//images.dmca.com/Badges/DMCABadgeHelper.min.js"> </script>
+    <h4>Rudra Library</h4>
+    
+    <footer>
+<ul class="social-icons">
+            <li><a "href=https://whatsapp.com/channel/0029VaUy7mR9hXExlIZWSQ2B"><img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-05 at 11.29.38 AM.jpeg"alt="whatsapp"></a></li>
+            <li><a href="https://www.instagram.com/purnangsu_nath/"><img src="C:\Users\angsh\Downloads\WhatsApp Image 2024-04-04 at 6.51.13 PM.jpeg"alt="Instagram"></a></li>
+        </ul>
+        <p>&copy; 2024 Rudra Library . All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
